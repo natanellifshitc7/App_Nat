@@ -28,7 +28,7 @@ function inTime(e){
   for(var i = 0 ; i<values.length ; i++){
     if(values[i][0] == id){
       i=i+2;
-      var in_time = Utilities.formatDate(new Date(), "IDT", "HH:mm:ss");
+      var in_time = Utilities.formatDate(new Date(), "GMT+3", "yyyy-MM-dd'T'HH:mm:ss'Z'");
       sheet.getRange(i,3).setValue(in_time);
       return ContentService.createTextOutput("Thank You ! Your In Time is "+in_time).setMimeType(ContentService.MimeType.TEXT);
     }
@@ -43,9 +43,9 @@ function outTime(e){
   for(var i = 0 ; i<values.length ; i++){
     if(values[i][0] == id){
       i=i+2;
-      var out_time = Utilities.formatDate(new Date(), "IDT", "HH:mm:ss");
+      var out_time = Utilities.formatDate(new Date(), "GMT+3", "yyyy-MM-dd'T'HH:mm:ss'Z'");
       sheet.getRange(i,4).setValue(out_time);
-      return ContentService.createTextOutput("Thank You ! Natanel Time is "+out_time+" id is "+id).setMimeType(ContentService.MimeType.TEXT);
+      return ContentService.createTextOutput("Thank You ! Out Time  is "+out_time+" id is "+id).setMimeType(ContentService.MimeType.TEXT);
     }
   }
   return ContentService.createTextOutput("Id Not Found is:"+id).setMimeType(ContentService.MimeType.TEXT);
